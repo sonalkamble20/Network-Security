@@ -1,0 +1,1 @@
+window.dpmPixels[0].updateUserVariable({"dpmUserId":"019910d0-8856-73a2-a9da-4fcb6fd05295","country_code":"840","city":"middletown","requestUUID":"0199110a-2791-713f-87ac-65c002b60e4f","latitude":"41.4535","ipAddress":"72.231.31.241","appnexusId":"7297595585009869086","dma":"","sessionId":"0199110a-2792-7596-9f71-0f8489e494cf","longitude":"-74.4774"});

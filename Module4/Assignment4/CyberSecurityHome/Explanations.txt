@@ -1,0 +1,81 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier-Bold;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+\f3\froman\fcharset0 Times-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b\fs26 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 sudo apt update && sudo apt upgrade -y
+\f1\b0\fs24 \uc0\u8232 This updates my system. The first part (
+\f2\fs26 apt update
+\f1\fs24 ) refreshes the list of available software packages, and the second part (
+\f2\fs26 apt upgrade
+\f1\fs24 ) actually installs the latest versions. The 
+\f2\fs26 -y
+\f1\fs24  just saves me from having to press \'93yes\'94 each time. Basically, it keeps my machine up to date and secure.\
+
+\f0\b\fs26 mkdir ~/lab4
+\f1\b0\fs24 \uc0\u8232 This just makes a new folder called 
+\f2\fs26 lab4
+\f1\fs24  inside my home directory. I used it to keep everything for this lab in one place.\
+
+\f0\b\fs26 cd ~/lab4
+\f1\b0\fs24 \uc0\u8232 I moved into the 
+\f2\fs26 lab4
+\f1\fs24  folder so all the work I do happens inside there instead of cluttering other folders.\
+
+\f0\b\fs26 sudo apt install nmap -y
+\f1\b0\fs24 \uc0\u8232 This installs 
+\f3\b Nmap
+\f1\b0 , which is a network scanning tool. I\'92ll be using Nmap a lot for this lab to explore networks.\
+
+\f0\b\fs26 nmap -sn 127.0.0.1
+\f1\b0\fs24 \uc0\u8232 This runs a \'93ping scan\'94 against my own machine (
+\f2\fs26 127.0.0.1
+\f1\fs24  is the loopback address). It\'92s just a quick way to check that Nmap is working properly.\
+
+\f0\b\fs26 ifconfig
+\f3\fs24  (or 
+\f0\fs26 ip a
+\f3\fs24 )
+\f1\b0 \uc0\u8232 This shows me the network interfaces and IP addresses my VM is using. I needed this to figure out my machine\'92s private IP on the network.\
+
+\f0\b\fs26 netstat -tuln
+\f1\b0\fs24 \uc0\u8232 This shows open ports and which services are listening. For example, I could see SSH running on port 22.\
+
+\f0\b\fs26 lsof -i -P -n
+\f1\b0\fs24 \uc0\u8232 This is similar to 
+\f2\fs26 netstat
+\f1\fs24  but gives more detail, like which program is tied to which port. Good for checking what\'92s running.\
+
+\f0\b\fs26 sudo nmap -sV localhost
+\f1\b0\fs24 \uc0\u8232 This scans my machine and tries to identify the versions of the services running. For example, I could see the exact version of SSH and CUPS.\
+
+\f0\b\fs26 sudo nmap -sP 192.168.1.0/24
+\f1\b0\fs24 \uc0\u8232 This does a \'93ping sweep\'94 on my local subnet. It tries to find all the machines that are alive in the 
+\f2\fs26 192.168.1.x
+\f1\fs24  range.\
+
+\f0\b\fs26 sudo nmap --script vuln localhost
+\f1\b0\fs24 \uc0\u8232 This uses Nmap\'92s vulnerability scripts to check my machine for common known issues. It\'92s a simple way to test for weaknesses.\
+
+\f0\b\fs26 sudo tcpdump -i eth0
+\f1\b0\fs24 \uc0\u8232 This captures raw network traffic on the 
+\f2\fs26 eth0
+\f1\fs24  interface. My VM didn\'92t have 
+\f2\fs26 eth0
+\f1\fs24  (it had 
+\f2\fs26 ens160
+\f1\fs24 ), but the point is that tcpdump lets you actually see packets moving in real time.\
+
+\f0\b\fs26 watch -n 1 netstat -tulnp
+\f1\b0\fs24 \uc0\u8232 This re-runs the 
+\f2\fs26 netstat
+\f1\fs24  command every second so I can watch open ports and connections in real time, almost like a live feed.\
+
+\f0\b\fs26 sudo ufw status verbose
+\f1\b0\fs24 \uc0\u8232 This checks the firewall (UFW = Uncomplicated Firewall). Mine showed as inactive, which means the firewall wasn\'92t blocking anything.\
+}
